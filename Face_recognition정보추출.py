@@ -6,11 +6,11 @@ import cv2
 import face_recognition
 import pickle #정보를 serialize(일렬로 세우기)한 후 다른 형태로 deserealize해줌
 
-dataset_paths=['./Data/dataset/jang/','./Data/dataset/minji/','./Data/dataset/son/','./Data/dataset/tedy/','./Data/dataset/you/']
-names=['Jang','Minji','Son','Tedy','You']
-number_images=10
+dataset_paths=['./project/dataset/go/','./project/dataset/gang/']
+names=['go','grat']
+number_images=20
 image_type='.jpg'
-encoding_file='encodings4.pickle'
+encoding_file='encodings2.pickle'
 model_method='cnn' #?네? 대표적인 시각화 방법으로 정확하지만 느림/ hog는 빠르지만 정확도 낮음
 
 knownEncodings=[]
