@@ -3,16 +3,15 @@ import face_recognition
 import pickle
 import dlib
 import numpy as np
-from PIL import Image
+# from PIL import Image
 
-
-image_file="Data/image/song.png"
-encoding_file="encodings3.pickle"
+image_file="project/dataset/gang/1.jpg"
+encoding_file="project/encodings4.pickle"
 unknown_name="Unknown"
 model_method="cnn"
 
 def detectAndDisplay(image):
-    images = np.array(Image.open(image))
+    images = np.array(image)
     rgb=cv2.cvtColor(images, cv2.COLOR_BGR2RGB)
 
     #얼굴 인식 부분 박스 그리기
@@ -48,7 +47,7 @@ def detectAndDisplay(image):
 
     #name이 image dataset에 있으면 해당 이미지의 첫번째 사진을 출력
     if name in data["names"]:
-        path="Data/dataset/"+name+"/1.jpg"
+        path="project/dataset/"+name+"/1.jpg"
         img = cv2.imread(path)
         cv2.imshow("talent image", img)
         cv2.imshow("original image", image)
@@ -67,7 +66,7 @@ RIGHT_EYE = list(range(36, 42))
 LEFT_EYE = list(range(42, 48))
 EYES = list(range(36, 48))
 
-predictor_file = 'C:/OpenSK/ai_cv/model/shape_predictor_68_face_landmarks.dat'
+predictor_file = 'shape_predictor_68_face_landmarks.dat'
 MARGIN_RATIO = 1.5 #얼굴이 조금더 크게 나오게 함
 OUTPUT_SIZE = (300, 300)
 
