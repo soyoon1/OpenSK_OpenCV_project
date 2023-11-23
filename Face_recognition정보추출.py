@@ -6,11 +6,24 @@ import cv2
 import face_recognition
 import pickle #정보를 serialize(일렬로 세우기)한 후 다른 형태로 deserealize해줌
 
-dataset_paths=['./project/dataset/go/','./project/dataset/gang/']
-names=['go','grat']
+dataset_paths=['./project/dataset/minsi/','./project/dataset/ara/' ,'./project/dataset/yoonjeong/', './project/dataset/goeun/', './project/dataset/dami/', './project/dataset/chaewon/', './project/dataset/taeri/', './project/dataset/yunseo/', './project/dataset/ningning/', './project/dataset/narae/', './project/dataset/boyoung/'
+                , './project/dataset/sodam/', './project/dataset/suji/', './project/dataset/sacura/', './project/dataset/eunbin/', './project/dataset/hyunjin/', './project/dataset/yejin/', './project/dataset/hyekyo/', './project/dataset/mina/', './project/dataset/sekyung/', './project/dataset/hyeseon/', './project/dataset/iu/'
+                , './project/dataset/ujin/', './project/dataset/nara/', './project/dataset/winter/', './project/dataset/yuna/', './project/dataset/doyeon/', './project/dataset/yeonglan/', './project/dataset/wonyoung/', './project/dataset/jeondoyeon/', './project/dataset/somin/', './project/dataset/jongseo/', './project/dataset/jihuyn/'
+                , './project/dataset/jeongsomin/', './project/dataset/yumi/', './project/dataset/hoyeon/', './project/dataset/jenny/', './project/dataset/ihyeon/', './project/dataset/jijel/', './project/dataset/woohee/', './project/dataset/karina/', './project/dataset/kazha/', './project/dataset/hani/', './project/dataset/sohee/'
+                , './project/dataset/jimin/', './project/dataset/hyoju/', './project/dataset/yunjin/', './project/dataset/hyeri/', './project/dataset/eunchae/']
+
+# 코랩 상의 파일 경로
+dataset_paths=['/content/drive/MyDrive/openSK/dataset/minsi/','/content/drive/MyDrive/openSK/dataset/ara/' ,'/content/drive/MyDrive/openSK/dataset/yoonjeong/', '/content/drive/MyDrive/openSK/dataset/goeun/', '/content/drive/MyDrive/openSK/dataset/dami/', '/content/drive/MyDrive/openSK/dataset/chaewon/', '/content/drive/MyDrive/openSK/dataset/taeri/', '/content/drive/MyDrive/openSK/dataset/yunseo/', '/content/drive/MyDrive/openSK/dataset/ningning/', '/content/drive/MyDrive/openSK/dataset/narae/', '/content/drive/MyDrive/openSK/dataset/boyoung/'
+                , '/content/drive/MyDrive/openSK/dataset/sodam/', '/content/drive/MyDrive/openSK/dataset/suji/', '/content/drive/MyDrive/openSK/dataset/sacura/', '/content/drive/MyDrive/openSK/dataset/eunbin/', '/content/drive/MyDrive/openSK/dataset/hyunjin/', '/content/drive/MyDrive/openSK/dataset/yejin/', '/content/drive/MyDrive/openSK/dataset/hyekyo/', '/content/drive/MyDrive/openSK/dataset/mina/', '/content/drive/MyDrive/openSK/dataset/sekyung/', '/content/drive/MyDrive/openSK/dataset/hyeseon/', '/content/drive/MyDrive/openSK/dataset/iu/'
+                , '/content/drive/MyDrive/openSK/dataset/ujin/', '/content/drive/MyDrive/openSK/dataset/nara/', '/content/drive/MyDrive/openSK/dataset/winter/', '/content/drive/MyDrive/openSK/dataset/yuna/', '/content/drive/MyDrive/openSK/dataset/doyeon/', '/content/drive/MyDrive/openSK/dataset/yeonglan/', '/content/drive/MyDrive/openSK/dataset/wonyoung/', '/content/drive/MyDrive/openSK/dataset/jeondoyeon/', '/content/drive/MyDrive/openSK/dataset/somin/', '/content/drive/MyDrive/openSK/dataset/jongseo/', '/content/drive/MyDrive/openSK/dataset/jihuyn/'
+                , '/content/drive/MyDrive/openSK/dataset/jeongsomin/', '/content/drive/MyDrive/openSK/dataset/yumi/', '/content/drive/MyDrive/openSK/dataset/hoyeon/', '/content/drive/MyDrive/openSK/dataset/jenny/', '/content/drive/MyDrive/openSK/dataset/ihyeon/', '/content/drive/MyDrive/openSK/dataset/jijel/', '/content/drive/MyDrive/openSK/dataset/woohee/', '/content/drive/MyDrive/openSK/dataset/karina/', '/content/drive/MyDrive/openSK/dataset/kazha/', '/content/drive/MyDrive/openSK/dataset/hani/', '/content/drive/MyDrive/openSK/dataset/sohee/'
+                , '/content/drive/MyDrive/openSK/dataset/jimin/', '/content/drive/MyDrive/openSK/dataset/hyoju/', '/content/drive/MyDrive/openSK/dataset/yunjin/', '/content/drive/MyDrive/openSK/dataset/hyeri/', '/content/drive/MyDrive/openSK/dataset/eunchae/']
+
+names=['minsi','ara', 'yoonjeong', 'goeun', 'dami', 'chaewon', 'taeri', 'yunseo', 'ningning', 'narae', 'boyoung', 'sodam', 'suji', 'sacura', 'eunbin', 'hyunjin', 'yejin', 'hyekyo', 'mina', 'sekyung', 'hyeseon', 'iu', 'ujin', 'nara', 'winter', 'yuna', 'doyeon', 'yeonglan', 'wonyoung', 'jeondoyeon', 'somin', 'jongseo', 'jihuyn', 'jeongsomin'
+        , 'yumi', 'hoyeon', 'jenny', 'ihyeon', 'jijel', 'woohee', 'karina', 'kazha', 'hani', 'sohee', 'jimin', 'hyoju', 'yunjin', 'hyeri', 'eunchae']
 number_images=20
 image_type='.jpg'
-encoding_file='encodings2.pickle'
+encoding_file='encodingsTest.pickle'
 model_method='cnn' #?네? 대표적인 시각화 방법으로 정확하지만 느림/ hog는 빠르지만 정확도 낮음
 
 knownEncodings=[]
