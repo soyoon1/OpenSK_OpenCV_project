@@ -6,11 +6,18 @@ import cv2
 import face_recognition
 import pickle #정보를 serialize(일렬로 세우기)한 후 다른 형태로 deserealize해줌
 
-dataset_paths=['./project/dataset/minsi/','./project/dataset/ara/' ,'./project/dataset/yoonjeong/', './project/dataset/goeun/', './project/dataset/dami/', './project/dataset/chaewon/', './project/dataset/taeri/', './project/dataset/yunseo/', './project/dataset/ningning/', './project/dataset/narae/', './project/dataset/boyoung/'
-                , './project/dataset/sodam/', './project/dataset/suji/', './project/dataset/sacura/', './project/dataset/eunbin/', './project/dataset/hyunjin/', './project/dataset/yejin/', './project/dataset/hyekyo/', './project/dataset/mina/', './project/dataset/sekyung/', './project/dataset/hyeseon/', './project/dataset/iu/'
-                , './project/dataset/ujin/', './project/dataset/nara/', './project/dataset/winter/', './project/dataset/yuna/', './project/dataset/doyeon/', './project/dataset/yeonglan/', './project/dataset/wonyoung/', './project/dataset/jeondoyeon/', './project/dataset/somin/', './project/dataset/jongseo/', './project/dataset/jihuyn/'
-                , './project/dataset/jeongsomin/', './project/dataset/yumi/', './project/dataset/hoyeon/', './project/dataset/jenny/', './project/dataset/ihyeon/', './project/dataset/jijel/', './project/dataset/woohee/', './project/dataset/karina/', './project/dataset/kazha/', './project/dataset/hani/', './project/dataset/sohee/'
-                , './project/dataset/jimin/', './project/dataset/hyoju/', './project/dataset/yunjin/', './project/dataset/hyeri/', './project/dataset/eunchae/']
+
+dataset_paths=['./project/dataset/minsi/','./project/dataset/ara/' ,'./project/dataset/yoonjeong/', './project/dataset/goeun/', './project/dataset/dami/', './project/dataset/chaewon/', './project/dataset/taeri/', './project/dataset/yunseo/', './project/dataset/ningning/', './project/dataset/narae/', 
+                './project/dataset/boyoung/', './project/dataset/sodam/', './project/dataset/suji/', './project/dataset/sacura/', './project/dataset/eunbin/', './project/dataset/hyunjin/', './project/dataset/yejin/', './project/dataset/hyekyo/', './project/dataset/mina/', './project/dataset/sekyung/',
+                './project/dataset/hyeseon/', './project/dataset/iu/', './project/dataset/ujin/', './project/dataset/nara/', './project/dataset/winter/', './project/dataset/yuna/', './project/dataset/doyeon/', './project/dataset/yeonglan/', './project/dataset/wonyoung/', './project/dataset/jeondoyeon/', 
+                './project/dataset/somin/', './project/dataset/jongseo/', './project/dataset/jihuyn/', './project/dataset/jeongsomin/', './project/dataset/yumi/', './project/dataset/hoyeon/', './project/dataset/jenny/', './project/dataset/ihyeon/', './project/dataset/jijel/', './project/dataset/woohee/', 
+                './project/dataset/karina/', './project/dataset/kazha/', './project/dataset/hani/', './project/dataset/sohee/', './project/dataset/jimin/', './project/dataset/hyoju/', './project/dataset/yunjin/', './project/dataset/hyeri/', './project/dataset/eunchae/','./project/dataset/daniel/',
+
+                './project/dataset/gangdaniel/','./project/dataset/dongwon/','./project/dataset/gray/','./project/dataset/jongguk/','./project/dataset/junho/','./project/dataset/woobin/','./project/dataset/youngchul/','./project/dataset/dex/','./project/dataset/dogyeom/','./project/dataset/do/',
+                './project/dataset/rocco/','./project/dataset/bogeom/','./project/dataset/seojun/','./project/dataset/jaebeom/','./project/dataset/baekhyeon/','./project/dataset/v/','./project/dataset/sam/','./project/dataset/gangjun/','./project/dataset/syeonu/','./project/dataset/songgangho/',
+                './project/dataset/seunggwan/','./project/dataset/ssamdi/','./project/dataset/sechan/','./project/dataset/sehyeong/','./project/dataset/yoseop/','./project/dataset/yeongjun/','./project/dataset/jaeseok/','./project/dataset/youhiyeol/','./project/dataset/gwangsu/','./project/dataset/sugeon/','./project/dataset/jehun/',
+                './project/dataset/eetk/','./project/dataset/hero/','./project/dataset/junggook/','./project/dataset/woosung/','./project/dataset/jujihun/','./project/dataset/juhaknyeon/','./project/dataset/jiseokjin/','./project/dataset/changuk/','./project/dataset/chaeunwoo/','./project/dataset/woosik/',
+                './project/dataset/taemin/','./project/dataset/tail/','./project/dataset/philiks/','./project/dataset/hajungwoo/','./project/dataset/hyeonbin/','./project/dataset/hyeonjin/','./project/dataset/gongyou/','./project/dataset/najaemin/','./project/dataset/gangsky/','./project/dataset/leejunho/']
 
 # 코랩 상의 파일 경로
 # dataset_paths=['/content/drive/MyDrive/openSK/dataset/minsi/','/content/drive/MyDrive/openSK/dataset/ara/' ,'/content/drive/MyDrive/openSK/dataset/yoonjeong/', '/content/drive/MyDrive/openSK/dataset/goeun/', '/content/drive/MyDrive/openSK/dataset/dami/', '/content/drive/MyDrive/openSK/dataset/chaewon/', '/content/drive/MyDrive/openSK/dataset/taeri/', '/content/drive/MyDrive/openSK/dataset/yunseo/', '/content/drive/MyDrive/openSK/dataset/ningning/', '/content/drive/MyDrive/openSK/dataset/narae/', '/content/drive/MyDrive/openSK/dataset/boyoung/'
@@ -19,8 +26,18 @@ dataset_paths=['./project/dataset/minsi/','./project/dataset/ara/' ,'./project/d
 #                 , '/content/drive/MyDrive/openSK/dataset/jeongsomin/', '/content/drive/MyDrive/openSK/dataset/yumi/', '/content/drive/MyDrive/openSK/dataset/hoyeon/', '/content/drive/MyDrive/openSK/dataset/jenny/', '/content/drive/MyDrive/openSK/dataset/ihyeon/', '/content/drive/MyDrive/openSK/dataset/jijel/', '/content/drive/MyDrive/openSK/dataset/woohee/', '/content/drive/MyDrive/openSK/dataset/karina/', '/content/drive/MyDrive/openSK/dataset/kazha/', '/content/drive/MyDrive/openSK/dataset/hani/', '/content/drive/MyDrive/openSK/dataset/sohee/'
 #                 , '/content/drive/MyDrive/openSK/dataset/jimin/', '/content/drive/MyDrive/openSK/dataset/hyoju/', '/content/drive/MyDrive/openSK/dataset/yunjin/', '/content/drive/MyDrive/openSK/dataset/hyeri/', '/content/drive/MyDrive/openSK/dataset/eunchae/']
 
-names=['minsi','ara', 'yoonjeong', 'goeun', 'dami', 'chaewon', 'taeri', 'yunseo', 'ningning', 'narae', 'boyoung', 'sodam', 'suji', 'sacura', 'eunbin', 'hyunjin', 'yejin', 'hyekyo', 'mina', 'sekyung', 'hyeseon', 'iu', 'ujin', 'nara', 'winter', 'yuna', 'doyeon', 'yeonglan', 'wonyoung', 'jeondoyeon', 'somin', 'jongseo', 'jihuyn', 'jeongsomin'
-        , 'yumi', 'hoyeon', 'jenny', 'ihyeon', 'jijel', 'woohee', 'karina', 'kazha', 'hani', 'sohee', 'jimin', 'hyoju', 'yunjin', 'hyeri', 'eunchae']
+names=['minsi','ara', 'yoonjeong', 'goeun', 'dami', 'chaewon', 'taeri', 'yunseo', 'ningning', 'narae', 
+        'boyoung', 'sodam', 'suji', 'sacura', 'eunbin', 'hyunjin', 'yejin', 'hyekyo', 'mina', 'sekyung', 
+        'hyeseon', 'iu', 'ujin', 'nara', 'winter', 'yuna', 'doyeon', 'yeonglan', 'wonyoung', 'jeondoyeon', 
+        'somin', 'jongseo', 'jihuyn', 'jeongsomin', 'yumi', 'hoyeon', 'jenny', 'ihyeon', 'jijel', 'woohee',
+        'karina', 'kazha', 'hani', 'sohee', 'jimin', 'hyoju', 'yunjin', 'hyeri', 'eunchae', 'daniel',
+
+        'gangdaniel','dongwon','gray','jongguk','junho','woobin','youngchul','dex','dogyeom','do',
+        'rocco','bogeom','seojun','jaebeom','baekhyeon','v','sam','gangjun','syeonu','songgangho',
+        'seunggwan','ssamdi','sechan','sehyeong','yoseop','yeongjun','jaeseok','youhiyeol','gwangsu','sugeon','jehun',
+        'eetk','hero','junggook','woosung','jujihun','juhaknyeon','jiseokjin','changuk','chaeunwoo','woosik',
+        'taemin','tail','philiks','hajungwoo','hyeonbin','hyeonjin','gongyou','najaemin','gangsky','leejunho']
+
 number_images=20
 image_type='.jpg'
 encoding_file='encodingsTest.pickle'
