@@ -51,12 +51,7 @@ def detectAndDisplay(image):
         img = cv2.imread(path)
         cv2.imshow("talent image", img)
         cv2.imshow("original image", image)
-
-
-
-
-
-    
+   
 
 
 data=pickle.loads(open(encoding_file,"rb").read())

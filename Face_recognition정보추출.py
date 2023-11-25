@@ -6,8 +6,15 @@ import cv2
 import face_recognition
 import pickle #정보를 serialize(일렬로 세우기)한 후 다른 형태로 deserealize해줌
 
-dataset_paths=['./project/dataset/go/','./project/dataset/gang/']
-names=['go','grat']
+dataset_paths=['./project/dataset/gangdaniel/','./project/dataset/dongwon/','./project/dataset/gray/','./project/dataset/jongguk/','./project/dataset/junho/','./project/dataset/woobin/','./project/dataset/youngchul/',
+'./project/dataset/dex/','./project/dataset/dogyeom/','./project/dataset/do/','./project/dataset/rocco/','./project/dataset/bogeom/','./project/dataset/seojun/','./project/dataset/jaebeom/','./project/dataset/baekhyeon/',
+'./project/dataset/v/','./project/dataset/sam/','./project/dataset/gangjun/','./project/dataset/syeonu/','./project/dataset/songgangho/','./project/dataset/seunggwan/','./project/dataset/ssamdi/','./project/dataset/sechan/',
+'./project/dataset/sehyeong/','./project/dataset/yoseop/','./project/dataset/yeongjun/','./project/dataset/jaeseok/','./project/dataset/youhiyeol/','./project/dataset/gwangsu/','./project/dataset/sugeon/','./project/dataset/jehun/',
+'./project/dataset/eetk/','./project/dataset/hero/','./project/dataset/junggook/','./project/dataset/woosung/','./project/dataset/jujihun/','./project/dataset/juhaknyeon/','./project/dataset/jiseokjin/','./project/dataset/changuk/',
+'./project/dataset/chaeunwoo/','./project/dataset/woosik/','./project/dataset/taemin/','./project/dataset/tail/','./project/dataset/philiks/','./project/dataset/hajungwoo/','./project/dataset/hyeonbin/']
+names=['gangdaniel','dongwon','gray','jongguk','junho','woobin','youngchul','dex','dogyeom','do','rocco','bogeom','seojun','jaebeom','baekhyeon','v','sam','gangjun','syeonu','songgangho','seunggwan',
+'ssamdi','sechan','yoseop','yeongjun','jaeseok','youhiyeol','gwangsu','sugeon','jehun','eetk','hero','junggook','woosung','jujihun','juhaknyeon','jiseokjin','changuk','chaeunwoo','woosik',
+'taemin','tail','philiks','hajungwoo','hyeonbin']
 number_images=20
 image_type='.jpg'
 encoding_file='encodings2.pickle'
