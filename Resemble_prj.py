@@ -5,7 +5,7 @@ import dlib
 import numpy as np
 # from PIL import Image
 
-image_file="project/dataset/gang/1.jpg"
+image_file="project/dataset/hani/1.jpg"
 encoding_file="project/encodings4.pickle"
 unknown_name="Unknown"
 model_method="cnn"
