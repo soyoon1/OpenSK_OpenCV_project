@@ -34,6 +34,7 @@ dataset_paths=['./project/dataset/minsi/','./project/dataset/ara/' ,'./project/d
 
 # ]
 
+
 names=['minsi','ara', 'yoonjeong', 'goeun', 'dami', 'chaewon', 'taeri', 'yunseo', 'ningning', 'narae', 
         'boyoung', 'sodam', 'suji', 'sacura', 'eunbin', 'hyunjin', 'yejin', 'hyekyo', 'mina', 'sekyung', 
         'hyeseon', 'iu', 'ujin', 'nara', 'winter', 'yuna', 'doyeon', 'yeonglan', 'wonyoung', 'jeondoyeon', 
