@@ -1,0 +1,22 @@
+#kakaotalk-sharing-btn{
+  width:235px;
+  height:45px;
+  background-color: #ffffff; /* 박스의 배경색을 설정하세요. */
+  margin-top: 27px;
+  border-radius: 10px;
+  margin-left: 170px;
+  display:inline-block;
+  box-shadow: 0 8px 10px -3px rgb(190, 189, 189);
+  background-color:#FED6D4;
+  color:white;
+  border:none;
+  font-family: 'Amaranth', sans-serif;
+  text-align: center;
+  font-size: 24px;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+#kakao-img{
+vertical-align: middle;
+}

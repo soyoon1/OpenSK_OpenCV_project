@@ -5,14 +5,10 @@ import dlib
 import numpy as np
 # from PIL import Image
 
-<<<<<<< HEAD
 image_file="project/dataset/hani/1.jpg"
-=======
-image_file="project/dataset/ara/1.jpg"
->>>>>>> b617a069332099791e25664fbf3b532e9d85f444
 encoding_file="project/encodings4.pickle"
 unknown_name="Unknown"
-model_method="hog"
+model_method="cnn"
 
 def detectAndDisplay(image):
     images = np.array(image)
@@ -55,7 +51,7 @@ def detectAndDisplay(image):
         img = cv2.imread(path)
         cv2.imshow("talent image", img)
         cv2.imshow("original image", image)
-        return path
+
 
 
 data=pickle.loads(open(encoding_file,"rb").read())
@@ -65,7 +61,7 @@ RIGHT_EYE = list(range(36, 42))
 LEFT_EYE = list(range(42, 48))
 EYES = list(range(36, 48))
 
-predictor_file = 'C:/OpenSK/ai_cv/model/shape_predictor_68_face_landmarks.dat'
+predictor_file = 'shape_predictor_68_face_landmarks.dat'
 MARGIN_RATIO = 1.5 #얼굴이 조금더 크게 나오게 함
 OUTPUT_SIZE = (300, 300)
 

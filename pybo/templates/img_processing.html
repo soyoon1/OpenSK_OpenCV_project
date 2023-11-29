@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="card">
+
+    <!-- <form  id="upload-file" action="/img_result" method="POST" enctype="multipart/form-data"> -->
+    <div>
+        <h2 id="headname">You look like...</h2>
+        <div id="boxes">
+            <div id="box1">
+                <form id="upload-file" action="/img_result" method="POST" enctype="multipart/form-data">
+                    <label for="chooseFile" style="color:#B0D6F9"> --Upload Image-- </label>
+                    <div class="fileContainer">
+                    </div>
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                    <div class="image-show" id="image-show"></div>
+                </form>
+            </div>
+            <div id="box2" id="resembleFile" name="resembleFile"></div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary " name="submit" value="제출" id="submit">
+            <div id="kakaotalk-sharing-btn" onclick="shareMessage()"><img id="kakao-img" src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼"> Share your result</div>
+        </div>
+    </div>
+    <!-- </form> -->
+<!--  밑 부분이 원래 있던 부분 -->
+    <!-- <div class="card">
         <div class="card-header">
             <h4> 디지털영상처리 - Upload Image </h4>
         </div>
@@ -26,12 +49,12 @@
             </form>
         </div>
         <div class="card-footer">
-             <a class="btn btn-outline-success" href="/">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <a class="btn btn-outline-success" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
-                 </svg>
-                 홈화면으로
-             </a>
+                </svg>
+                홈화면으로
+            </a>
         </div>
-    </div>
+    </div> -->
 {% endblock %}

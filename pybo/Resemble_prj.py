@@ -6,7 +6,7 @@ import numpy as np
 # from PIL import Image
 
 image_file="pybo/dataset/ara/1.jpg"
-encoding_file="pybo/encodingsTest.pickle"
+encoding_file="pybo/encodings100.pickle"
 unknown_name="Unknown"
 model_method="hog"
 
@@ -61,7 +61,7 @@ RIGHT_EYE = list(range(36, 42))
 LEFT_EYE = list(range(42, 48))
 EYES = list(range(36, 48))
 
-predictor_file = 'C:/OpenSK/ai_cv/model/shape_predictor_68_face_landmarks.dat'
+predictor_file = 'shape_predictor_68_face_landmarks.dat'
 MARGIN_RATIO = 1.5 #얼굴이 조금더 크게 나오게 함
 OUTPUT_SIZE = (300, 300)
 

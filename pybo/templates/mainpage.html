@@ -1,45 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>멀티미디어프로그래밍 2023-2</title>
-    <!-- <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/87c08dff42.js" crossorigin="anonymous"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/87c08dff42.js" crossorigin="anonymous"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/file_name.css') }}">
-    <link rel="stylesheet" href="{{ url_for('serve_static', filename='css/kakao.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/file_upload.css">
+    <link rel="stylesheet" href="../static/css/kakao.css">
 
-
-
-
-    <style>
-        .float-container {
-            border: 3px solid #fff;
-            padding: 20px;
-        }
-        .float-child {
-            width: 50%;
-            float: left;
-            padding: 20px;
-            border: 2px solid red;
-        }
-        .a {
-            text-align: center;
-        }
-    </style>
 </head>
-<body id="container">
 
-{% block content %}{% endblock %}
+<body id="container">
+    <form action="/img_result" method="POST" enctype="multipart/form-data">
+        <div>
+            <h2 id="headname">You look like...</h2>
+            <div id="boxes">
+                <div id="box1">
+                    <form method="post" enctype="multipart/form-data" action="/">
+                        <label for="chooseFile" style="color:#B0D6F9"> --Upload Image-- </label>
+                        <div class="fileContainer">
+                        </div>
+                        <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                        <div class="image-show" id="image-show"></div>
+                    </form>
+                </div>
+                <div id="box2" id="resembleFile" name="resembleFile"></div>
+            </div>
+            <div>
+                <input id="button1" type="submit"></input>
+                <div id="kakaotalk-sharing-btn" onclick="shareMessage()"><img id="kakao-img" src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼"> Share your result</div>
+            </div>
+        </div>
+    </form>
+
+    <!-- <div>
+
+    </div> -->
+
+
     <footer >
         <div style="left: 76px; bottom: 100px; position: absolute; color: #BBBBBB; font-size: 24px; font-family: Amaranth; font-weight: 400; word-wrap: break-word">DEVELOPER </div>
         <div style="left: 76px; bottom: 45px; position: absolute; color: #BBBBBB; font-size: 18px; font-family: Amaranth; font-weight: 400; word-wrap: break-word">Kabeen kim<br/>Soyoon Cho</div>
@@ -49,14 +53,11 @@
     </footer>
 
 
-    <script src="{{ url_for('serve_static', filename='js/file_upload.js') }}"></script>
+    <script src="../static/js/file_upload.js"></script>
     <script src="../static/js/kakao.js"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
     integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
     <script>Kakao.init('b0013f249163dfbf8966b22001d425f1'); // 사용하려는 앱의 JavaScript 키 입력</script>
-
-
-
-
 </body>
+
 </html>
