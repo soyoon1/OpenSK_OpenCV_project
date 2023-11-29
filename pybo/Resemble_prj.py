@@ -47,7 +47,7 @@ def detectAndDisplay(image):
 
     #name이 image dataset에 있으면 해당 이미지의 첫번째 사진을 출력
     if name in data["names"]:
-        path="project/dataset/"+name+"/1.jpg"
+        path="pybo/dataset/"+name+"/1.jpg"
         img = cv2.imread(path)
         cv2.imshow("talent image", img)
         cv2.imshow("original image", image)
@@ -98,7 +98,7 @@ for (i, rect) in enumerate(rects): #얼굴 인식한 것들을 for문 돌려주�
 
     right_eye_center = np.mean(points[RIGHT_EYE], axis = 0).astype("int")
     left_eye_center = np.mean(points[LEFT_EYE], axis = 0).astype("int")
-    print(right_eye_center, left_eye_center)
+    # print(right_eye_center, left_eye_center)
 
     cv2.circle(image, (right_eye_center[0,0], right_eye_center[0,1]), 5, (0, 0, 255), -1)
     cv2.circle(image, (left_eye_center[0,0], left_eye_center[0,1]), 5, (0, 0, 255), -1)
@@ -142,6 +142,6 @@ for (i, rect) in enumerate(rects): #얼굴 인식한 것들을 for문 돌려주�
         cv2.circle(image, (x, y), 1, (0, 255, 255), -1)
 
 
-detectAndDisplay(image)
+# detectAndDisplay(image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
