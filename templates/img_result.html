@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <h2 id="headname">You look like...</h2>
+    <div id="boxes">
+        <div id="box1">
+            <div class="fileContainer"></div>
+                <img src="{{ url_for('upload_img', filename=file_name) }}" style="width: 300px; height: 420px; border-radius: 10px;">
+            
+        </div>
+
+        <div id="box2" id="resembleFile" name="resembleFile">
+            <div class="fileContainer"></div>
+            <div class="image-show" id="image-show2">
+                <img src="{{ url_for('result_img', filename=result_file) }} " style="width: 300px; height: 420px; border-radius: 10px;">
+            </div>
+        </div>
+    </div>
+    <div>
+        <input id="button1" type="submit" value="Submit"></input>
+        <div id="kakaotalk-sharing-btn" onclick="shareMessage()"><img id="kakao-img" src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼"> Share your result</div>
+    </div>
+</div>
+
+{% endblock %}
