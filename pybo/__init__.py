@@ -23,9 +23,6 @@ def create_app():
     app.config['RESULT_FOLDER'] = 'dataset'  # 반드시 폴더 미리 생성
     app.config['UPLOAD_FOLDER'] = 'uploads'  # 반드시 폴더 미리 생성
 
-    @app.route('/static/<path:filename>')
-    def serve_static(filename):
-        return send_from_directory('static', filename)
 
     @app.route('/', methods=['GET'])
     def img_processing():
@@ -100,5 +97,9 @@ def create_app():
     #     # return "hello~~~pybo 패키지~~~"
     #     return render_template('index.html')  # 이 html을 클라이언트에 전달하겠다.
 
+    @app.route('/static/<path:filename>')
+    def serve_static(filename):
+        return send_from_directory('static', filename)
+    
     return app
 
