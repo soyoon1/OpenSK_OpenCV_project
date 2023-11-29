@@ -11,7 +11,7 @@ from . import Resemble_prj
 from flask.templating import render_template
 from werkzeug.utils import secure_filename
 import cv2 as cv
-from pybo.img_processing import embossing, cartoon, pencilGray, pencilColor, oilPainting, detailEnhance
+# from pybo.img_processing import embossing, cartoon, pencilGray, pencilColor, oilPainting, detailEnhance
 
 
 # 공통적으로 사용할 수 있는 폴더를 반드시 하나 만들어줘야 함.

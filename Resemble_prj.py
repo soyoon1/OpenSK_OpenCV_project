@@ -5,8 +5,8 @@ import dlib
 import numpy as np
 # from PIL import Image
 
-image_file="pybo/dataset/ara/1.jpg"
-encoding_file="pybo/encodings100.pickle"
+# image_file="pybo/dataset/ara/1.jpg"
+encoding_file="project/encodings100.pickle"
 unknown_name="Unknown"
 model_method="hog"
 
@@ -47,7 +47,7 @@ def detectAndDisplay(image):
 
     #name이 image dataset에 있으면 해당 이미지의 첫번째 사진을 출력
     if name in data["names"]:
-        path="pybo/dataset/"+name+"/1.jpg"
+        path="project/dataset/"+name+"/1.jpg"
         img = cv2.imread(path)
         cv2.imshow("talent image", img)
         cv2.imshow("original image", image)
